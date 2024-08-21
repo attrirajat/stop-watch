@@ -1,10 +1,14 @@
+let timerInterval;
 let seconds = 0;
 let minutes = 0;
 let hours = 0;
-let timerInterval = null;
-const startButton = document.getElementById("start");
-const stopButton = document.getElementById("stop");
+let isRunning = false;
+let laps = 1;
+
+const startStopButton = document.getElementById("startStopButton");
 const resetButton = document.getElementById("reset");
+const lapsButton = document.getElementById("lap");
+const lapData = document.getElementById("laps");
 
 function updateDisplay() {
   document.getElementById("seconds").innerHTML = String(seconds).padStart(
@@ -18,43 +22,61 @@ function updateDisplay() {
   document.getElementById("hours").innerHTML = String(hours).padStart(2, "0");
 }
 
-function startStopwatch() {
-  timerInterval = setInterval(() => {
-    seconds += 1;
+function toggleStopwatch() {
+  if (isRunning) {
+    clearInterval(timerInterval);
+    startStopButton.innerHTML = "Start";
+  } else {
+    timerInterval = setInterval(() => {
+      seconds += 1;
 
-    if (seconds === 60) {
-      seconds = 0;
-      minutes += 1;
-    }
+      if (seconds === 60) {
+        seconds = 0;
+        minutes += 1;
+      }
 
-    if (minutes === 60) {
-      minutes = 0;
-      hours += 1;
-    }
-    updateDisplay();
-  }, 500);
+      if (minutes === 60) {
+        minutes = 0;
+        hours += 1;
+      }
 
-  startButton.disabled = true;
-  stopButton.disabled = false;
+      updateDisplay();
+    }, 500);
+
+    startStopButton.innerHTML = "Stop";
+  }
+
+  isRunning = !isRunning;
   resetButton.disabled = false;
 }
 
-function stopStopwatch() {
-  clearInterval(timerInterval);
-  startButton.disabled = false;
-  stopButton.disabled = true;
-  resetButton.disabled = false;
+function lapInterval() {
+  lapDisplay =
+    String(hours).padStart(2, "0") +
+    ":" +
+    String(minutes).padStart(2, "0") +
+    ":" +
+    String(seconds).padStart(2, "0");
 }
+
+lapsButton.addEventListener("click", () => {
+  const newData = document.createElement("span");
+  newData.textContent = "Lap " + laps + " " + lapDisplay;
+  lapData.appendChild(newData);
+  laps += 1;
+});
 
 function resetStopwatch() {
-  stopStopwatch();
+  clearInterval(timerInterval);
   seconds = 0;
   minutes = 0;
   hours = 0;
+  laps = 1;
+  isRunning = false;
+
   updateDisplay();
-  startButton.disabled = false;
-  stopButton.disabled = true;
+  startStopButton.innerHTML = "Start";
+  lapData.innerHTML = "";
+  startStopButton.disabled = false;
   resetButton.disabled = true;
 }
-
-updateDisplay();

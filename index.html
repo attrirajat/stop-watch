@@ -15,9 +15,12 @@
       <div id="seconds">00</div>
     </div>
     <div id="buttons">
-      <button id="start" onclick="startStopwatch()">Start</button>
-      <button id="stop" onclick="stopStopwatch()" disabled>Stop</button>
+      <button id="startStopButton" onclick="toggleStopwatch()">Start</button>
       <button id="reset" onclick="resetStopwatch()" disabled>Reset</button>
+      <button id="lap" onclick="lapInterval()">Lap</button>
+    </div>
+    <div id="container">
+      <span id="laps"></span>
     </div>
   </body>
 
