@@ -65,26 +65,26 @@ body {
     text-align: center;
     width: 700px; 
     padding: 10px;
-    background-color: #2c3e50;;
+    background-color: #2c3e50;
 }
   hr {
     border: 1px solid #888;
     width: 700px;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     #timer {
       font-size: 50px;
-      max-width: 100%;
+      max-width: 50%;
     }
     #laps {
       font-size: 40px;
-      max-width: 100%;
+      max-width: 50%;
     }
 
     button {
       font-size: 15px;
       padding: 8px 20px;
-      max-width: 100%;
+      max-width: 50%;
     }
   }
