@@ -26,6 +26,7 @@ function toggleStopwatch() {
   if (isRunning) {
     clearInterval(timerInterval);
     startStopButton.innerHTML = "Start";
+    startStopButton.style.backgroundColor = "#27ae60";
   } else {
     timerInterval = setInterval(() => {
       seconds += 1;
@@ -44,6 +45,7 @@ function toggleStopwatch() {
     }, 500);
 
     startStopButton.innerHTML = "Stop";
+    startStopButton.style.backgroundColor = "rgb(194, 34, 34)";
   }
 
   isRunning = !isRunning;
@@ -60,9 +62,11 @@ function lapInterval() {
 }
 
 lapsButton.addEventListener("click", () => {
+  const linebelowSpan = document.createElement("hr");
   const newData = document.createElement("span");
-  newData.textContent = "Lap " + laps + " " + lapDisplay;
+  newData.textContent = "Lap " + laps + "- " + lapDisplay;
   lapData.appendChild(newData);
+  lapData.appendChild(linebelowSpan);
   laps += 1;
 });
 
@@ -76,6 +80,7 @@ function resetStopwatch() {
 
   updateDisplay();
   startStopButton.innerHTML = "Start";
+  startStopButton.style.backgroundColor = "rgb(11, 185, 43)";
   lapData.innerHTML = "";
   startStopButton.disabled = false;
   resetButton.disabled = true;

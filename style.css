@@ -1,38 +1,36 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-  }
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 10px;
+  background-color: #2c3e50;
+}
 
   #timer {
     font-size: 7rem;
-    font-weight: 700;
+    font-weight:700;
     text-shadow: 2px 2px black;
-    color: blueviolet;
-    width: 600px;
-    text-align: center;
-    margin: 40px auto;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  #laps {
-    font-size: 7rem;
-    font-weight: 700;
-    text-shadow: 2px 2px black;
-    color: blueviolet;
+    color: #ecf0f1;
     width: 500px;
     text-align: center;
     margin: 10px auto;
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+  }
+
+  #laps {
+    font-size: 5rem;
+    font-weight: 500;
+    text-shadow: 2px 2px black;
+    color: #ecf0f1;
+    width: 500px;
+    text-align: left;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
   }
 
   #buttons {
@@ -41,7 +39,7 @@ body {
   }
 
   button {
-    background-color: blueviolet;
+    background-color:#e74c3c;
     color: white;
     border: none;
     font-size: 2rem;
@@ -50,22 +48,29 @@ body {
     margin: 1rem;
     border-radius: 30px;
     cursor: pointer;
-    box-shadow: 2px 2px 10px rgba(19, 18, 18, 0.3);
+    box-shadow: 5px 5px 10px rgba(19, 18, 18, 0.3);
     transition: all 0.2s;
   }
+
   button:disabled {
     background-color: #cccccc;
     color: #666666;
     cursor: not-allowed;
   }
 
-  #container {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  width: 200px; 
-  padding: 10px;
-  background-color: #f9f9f9;  }
+
+  #laps {
+    display: inline-flex;
+    flex-direction: column; 
+    text-align: center;
+    width: 700px; 
+    padding: 10px;
+    background-color: #2c3e50;;
+}
+  hr {
+    border: 1px solid #888;
+    width: 700px;
+  }
 
   @media (max-width: 700px) {
     #timer {
@@ -73,7 +78,7 @@ body {
       max-width: 100%;
     }
     #laps {
-      font-size: 50px;
+      font-size: 40px;
       max-width: 100%;
     }
 
