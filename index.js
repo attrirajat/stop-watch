@@ -50,6 +50,7 @@ function toggleStopwatch() {
 
   isRunning = !isRunning;
   resetButton.disabled = false;
+  lapsButton.disabled = false;
 }
 
 function lapInterval() {
@@ -84,4 +85,5 @@ function resetStopwatch() {
   lapData.innerHTML = "";
   startStopButton.disabled = false;
   resetButton.disabled = true;
+  lapsButton.disabled = true;
 }
